@@ -1,9 +1,9 @@
 # Report
 ## Introduction
 ### Problem
-Epilepsy is a chronic neurological disease that effects around 50 million people worldwide$^{[1]}$. Epilepsy, characterized by spontaneous seizures, cannot be removed completely in approximately 30% of epileptic patients $^{[1]}$. These individuals often experience anxiety due to the possibility of an unexpected seizure. Unexpected seizures can be fatal as normal activities such as driving or swimming turn fatal. This creates the need for high precision seizure detection systems which inform patients of upcoming seizures.
+Epilepsy is a chronic neurological disease that effects around 50 million people worldwide $^{[1]}$. Epilepsy, characterized by spontaneous seizures, cannot be removed completely in approximately 30% of epileptic patients $^{[1]}$. These individuals often experience anxiety due to the possibility of an unexpected seizure. Unexpected seizures can be fatal as normal activities such as driving or swimming turn fatal. This creates the need for high precision seizure detection systems which inform patients of upcoming seizures.
 
-There are four phases of a seizure: interictal (baseline), preictal (preceding a seizure), ictal (seizure), and postictal (after seizure)$^{[2]}$. These four states can be identified in electroencephalogram (EEG) data.
+There are four phases of a seizure: interictal (baseline), preictal (preceding a seizure), ictal (seizure), and postictal (after seizure) $^{[2]}$. These four states can be identified in electroencephalogram (EEG) data.
 
 In this lab, EEG data classification will be explored in several methods. Feature extraction will be an initial concern, as time-series EEG data may not be the best format to classify preictal states. Then, support vector classification will be tested as a method to classify EEG data into different states. Finally, a neural network will be built to classify preictal states in order to predict ictal states.
 ### Dataset
@@ -27,7 +27,7 @@ Before I downsampled my data, I first ran a highpass and lowpass filter on the d
 
 ![Power Spectral Density: Filtered](images/PSD_after_filtering.png)
 
-After filtering and downsampling the sample, the noise is reduced. However, the channels are still overlapping. This suggests that, for this sample, the signals of each channel are dominated by exterior noise. In order to fix this, I recomputed the EEG reference of each sample using the Common Average Reference. The Common Average Reference technique involves taking the mean of all the channels and subtracting that from each individual channel.$^6$ This in part reduces the shared noise and averages the error rate among channels.
+After filtering and downsampling the sample, the noise is reduced. However, the channels are still overlapping. This suggests that, for this sample, the signals of each channel are dominated by exterior noise. In order to fix this, I recomputed the EEG reference of each sample using the Common Average Reference. The Common Average Reference technique involves taking the mean of all the channels and subtracting that from each individual channel. $^6$ This in part reduces the shared noise and averages the error rate among channels.
 
 ![Power Spectral Density: After](images/PSD_After_Feature_Engineering.png)
 
@@ -132,3 +132,14 @@ Still, it is unknown how well these scores will hold up for larger datasets. The
 
 ## Conclusion
 Predicting seizures by classifying preictal seizure events is a challenging neurology problem. Steady classification of events requires electroencephalography to be preprocessed as well as feature engineered. Features in both time and spectral domains can be taken, allowing models to consider different frequency bands. This lab was inhibited by the quantity of data used, causing the samples to not be indicative of true samples. Further seizure prediction research should utilize feature engineering on a vast dataset.
+
+## Works Cited
+
+    1. https://www.who.int/news-room/fact-sheets/detail/epilepsy
+    2. https://epilepsydisease.com/seizure-stages
+    3. https://academic.oup.com/book/35488
+    4. https://onlinelibrary.wiley.com/doi/10.1002/epi4.12704
+    5. https://www.kaggle.com/competitions/seizure-prediction/data
+    6. https://www.fieldtriptoolbox.org/faq/why_should_i_use_an_average_reference_for_eeg_source_reconstruction/
+    7. https://medium.com/nerd-for-tech/how-to-create-tensorflow-tfrecords-out-of-any-dataset-c64c3f98f4f8
+
